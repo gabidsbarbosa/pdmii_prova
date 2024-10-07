@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _login() async {
     // Faz a requisição POST para o endpoint de login
     final response = await http.post(
-      Uri.parse('https://demo4150164.mockable.io/login'),
+      Uri.parse('https://demo6784003.mockable.io/login'),
       body: json.encode({
         'name': _nameController.text, // Nome inserido
         'password': _passwordController.text, // Senha inserida
@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       setState(() {
-        token = data['token']; // Armazena o token recebido
+        token = data['token'].toString(); // Armazena o token recebido
       });
       // Navega para a tela de notas, passando o token
       Navigator.push(

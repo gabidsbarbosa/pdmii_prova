@@ -18,7 +18,7 @@ class _NotasScreenState extends State<NotasScreen> {
   // Função para buscar as notas do endpoint
   Future<void> _fetchNotas() async {
     final response = await http.get(
-      Uri.parse('https://demo4150164.mockable.io/notasAlunos'),
+      Uri.parse('https://demo6784003.mockable.io/notasAlunos'),
     );
 
     if (response.statusCode == 200) {
@@ -92,7 +92,11 @@ class _NotasScreenState extends State<NotasScreen> {
                 // Item da lista com o nome e nota do aluno
                 return Container(
                   color: backgroundColor, // Cor de fundo do item
+                  margin: EdgeInsets.symmetric(
+                      vertical: 4), // Espaço entre os itens
                   child: ListTile(
+                    contentPadding: EdgeInsets.symmetric(
+                        horizontal: 8, vertical: 4), // Padding reduzido
                     title: Text(aluno['nome']), // Nome do aluno
                     subtitle: Text('Nota: ${aluno['nota']}'), // Nota do aluno
                   ),
